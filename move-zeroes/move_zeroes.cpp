@@ -6,6 +6,8 @@ using namespace std;
 
 class Solution {
 public:
+    /*
+    // Approach 1: 
     void moveZeroes(vector<int>& nums) {
         int index = 0;
         int countZeroes = 0;
@@ -23,7 +25,26 @@ public:
             i++;
             countZeroes--;
         }
+    }
+    */
 
+    // Approach 2:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size();
+
+        if(n==0 || n==1)
+            return;
+
+        int left=0;
+        int right=0;
+
+        while(right < n)
+        {
+            if(nums[right] == 0)
+                right++;
+            else 
+                swap(nums[left++],nums[right++]);   
+        }   
     }
 };
 
